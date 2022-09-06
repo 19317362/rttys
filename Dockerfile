@@ -8,6 +8,8 @@ WORKDIR /rttys-build
 COPY . .
 COPY --from=ui /rttys-ui/dist ui/dist
 RUN CGO_ENABLED=0 \
+    GOPROXY=https://goproxy.io \
+    GO111MODULE=on \
     VersionPath="rttys/version" \
     GitCommit=$(git log --pretty=format:"%h" -1) \
     BuildTime=$(date +%FT%T%z) \
