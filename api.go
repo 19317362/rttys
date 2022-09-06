@@ -369,6 +369,10 @@ func apiStart(br *broker) {
 		if cnt == 0 {
 			isAdmin = 1
 		}
+		else{
+			c.Status(http.StatusForbidden)
+			return			
+		}
 
 		db.QueryRow("SELECT COUNT(*) FROM account WHERE username = ?", creds.Username).Scan(&cnt)
 		if cnt > 0 {
