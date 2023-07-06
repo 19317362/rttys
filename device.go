@@ -42,7 +42,7 @@ const (
 )
 
 const rttyProto uint8 = 3
-const heartbeatInterval = time.Second * 5
+const heartbeatInterval = time.Second * 20
 
 type device struct {
 	br         *broker
